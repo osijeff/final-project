@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   
+    {% block head_meta_charset %}
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% endblock head_meta_charset %}
+
+    {% block head_meta_viewport %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endblock head_meta_viewport %}
+    {% load static %}
+
+    {% block head_css_site %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.css' %}">
+    {% endblock head_css_site %}
+
+
+    <title>{% block title %}Home {% endblock title %} | Clothesforyou</title>
+    <style>
+        .navbar-brand{
+                letter-spacing: .1em;
+                text-transform: uppercase;
+                font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+.d-flex div a {
+     text-decoration: none;
+    margin-right: 10px;
+    color:gray
+}
+.d-flex div a:hover {
+     
+    color:black
+}
+i{
+    margin-right: 5px;
+}
+    </style>
+</head>
+
+<body>
+    {%block header%}
+<div class="d-flex p-2 justify-content-between">
+    <div>
+       
+        <a  href=""><i class="fa fa-envelope-o" aria-hidden="true"></i>Clothesforyou@gmail.com</a>
+        <a href="">FAQ</a>
+        <a href="">Privacy</a>
+        <a href="">career</a>
+    </div>
+    <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+    <div>
+        <a href="">whitelist</a>
+        <a href=""><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+        <a href=""><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+        <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        <a href=""><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+        <a href=""><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+      
+    </div>
+</div>
+
+    {%endblock header%}
+    {% block nav %}
+    <nav class="navbar navbar-expand-lg navbar-light  " style="background-color: orange;">
+        <div class="container-fluid">
+            <a class="navbar-brand my-name" href="#" style="color:white; font-size:2em;">Clothesforyou</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    {%block active-home%}
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="{% url 'home' %}">Store</a>
+                        
+                    </li>
+                    {%endblock active-home%}
+                    {%block active-about%}
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="{% url 'about' %}">About</a>
+                    </li>
+                   {%endblock active-about%}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                           products
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Men</a></li>
+                            <li><a class="dropdown-item" href="#">Women</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            
+                            <li><a class="dropdown-item" href="#">others</a></li>
+                        </ul>
+                    </li>
+                    {%block active-blog%}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'blog' %}">blog</a>
+                        </li>
+                        {%endblock active-blog%}
+                        {%block active-tracker%}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'tracker' %}">tracker</a>
+                            </li>
+                            {%endblock active-tracker%}
+                            {%block active-contact%}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'contact' %}">contact</a>
+                        </li>
+                        {%endblock active-contact%}
+                 
+                </ul>
+                <div class="form-inline my-2 my-lg-0 d-flex">
+                    <a href="">
+                        <i id="cart-icon" class="fa fa-sign-in" aria-hidden="true"></i>
+                    </a>
+                    <a href="">
+                    <i  id = "cart-icon" class="fa fa-heart-o" aria-hidden="true"></i>
+                    </a>
+                    
+                    <a href="{% url 'cart' %}"  data-toggle="tooltip" title="Hooray!">
+                        <i  id = "cart-icon" class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    </a>
+                    <div id="cart-total">0</div>
+                </div>
+            </div>
+        </div>
+
+    </nav>
+    {% endblock nav %}
+    {% block content %}
+    <img src="{% static '/images/face-10.jpg' %}" alt="My image" />
+    {% endblock content %}
+
+
+    {% block script %}
+    <script src="{%  static '/JS/bootstrap.js'  %}"></script>
+    <script src="{%  static '/JS/main.js'  %}"></script>
+    {% endblock script %}
+   
+</body>
+
+</html>

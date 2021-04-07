@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block title %}Cart{% endblock title %}
+
+{%load static%}
+
+
+{%block active-tracker%}
+<li class="nav-item">
+    <a class="nav-link active" href="{% url 'contact' %}">Tracker</a>
+</li>
+{%endblock active-tracker%}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box-element">
+                 <a class = "btn btn-outline-dark" href="{% url 'home' %}"> &#x2190; Continue Shopping</a>
+                 <br>
+                 <br>
+                 <table style="width:100%">
+                     <tr>
+                         <th>
+                             <h5>Items: <strong>1</strong></h5>
+                         </th>
+                        <th>
+                            <h5>Total: <strong>R150</strong></h5>
+                        </th>
+                        <th>
+                            <a style="float:right; margin:5px" href="{% url 'checkout' %}" class="btn btn-success">Checkout</a>
+                        </th>
+
+
+                     </tr>
+                 </table>
+            </div>
+
+            <br>
+
+            <div class="box-element">
+                <div class="cart-row">
+                    <div style="flex: 2;"><strong></strong></div>
+                    <div style="flex: 2;"><strong>Item</strong></div>
+                    <div style="flex: 1;"><strong>Price</strong></div>
+                    <div style="flex: 1;"><strong>Quantity</strong></div>
+                    <div style="flex: 1;"><strong>Total</strong></div>
+                </div>
+
+                <div class="cart-row">
+                    <div style="flex: 2;"><img class="row-image" src="{% static 'images/boot03.jpg'%}" alt=""></div>
+                    <div style="flex: 2;">Product 1</div>
+                    <div style="flex: 1;">R150</div>
+                    <div style="flex: 1;">
+                        <p class="quantity">1</p>
+                        <div class="quantity" >
+                            <i class="fa fa-arrow-up arrows" aria-hidden="true"></i>
+                            <i class="fa fa-arrow-down arrows" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div style="flex: 1;">R150</div>
+                </div>
+            
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
